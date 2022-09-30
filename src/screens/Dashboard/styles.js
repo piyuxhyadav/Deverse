@@ -35,7 +35,7 @@ export default StyleSheet.create({
 		height: "fit-content",
 		padding: 10,
 		backgroundColor: "white",
-		border: "1 pt solid black",
+		border: "1px solid black",
 		borderRadius: 4,
 		marginLeft: 10,
 		marginRight: 10,

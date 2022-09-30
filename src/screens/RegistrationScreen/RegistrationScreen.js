@@ -6,7 +6,7 @@ import { firebase } from "../../firebase/config";
 
 export default function RegistrationScreen({ navigation }) {
 	const [fullName, setFullName] = useState("");
-	const [rollNo, setRollNo] = useState(0);
+	const [rollNo, setRollNo] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
@@ -55,9 +55,13 @@ export default function RegistrationScreen({ navigation }) {
 
 	return (
 		<View style={styles.container}>
-			<KeyboardAwareScrollView
-				style={{ flex: 1, width: "100%", marginTop: "30 pt" }}
-				keyboardShouldPersistTaps="always"
+			<View
+				style={{
+					marginBottom: "auto",
+					marginTop: "auto",
+					width: "100%",
+				}}
+				// keyboardShouldPersistTaps="always"
 			>
 				<TextInput
 					style={styles.input}
@@ -120,7 +124,7 @@ export default function RegistrationScreen({ navigation }) {
 						</Text>
 					</Text>
 				</View>
-			</KeyboardAwareScrollView>
+			</View>
 		</View>
 	);
 }

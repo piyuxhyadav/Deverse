@@ -102,42 +102,42 @@ export default function Dashboard(props) {
 
 		if (docSnap.exists()) {
 			const complaintData = docSnap.data();
-			console.log(complaintData);
+
 			const axios = require("axios").default;
 			const qs = require("qs");
 
 			if (complaintData.isResolved == true) {
 				await axios.post(
 					"https://api.twilio.com/2010-04-01/Accounts/" +
-						"xxxxx" +
+						"xxxx" +
 						"/Messages.json",
 					qs.stringify({
 						Body: `The complaint below is now solved, and there's no issue now. \nName: ${complaintData.fullName}  \nRoll No:  ${complaintData.rollNo} \nRoom : ${complaintData.room} \nSubject:${complaintData.subject} \nDescription:${complaintData.description} `,
-						From: "whatsapp:+xxxx",
-						To: "whatsapp:+xxxx",
+						From: "whatsapp:+xxx",
+						To: "whatsapp:+xxx",
 					}),
 					{
 						auth: {
-							username: "xxxx",
-							password: "xxxx",
+							username: "xxx",
+							password: "xxx",
 						},
 					}
 				);
 			} else {
 				await axios.post(
 					"https://api.twilio.com/2010-04-01/Accounts/" +
-						"xxxx" +
+						"xxx" +
 						"/Messages.json",
 					qs.stringify({
 						Body: `Name: ${complaintData.fullName}  \nRoll No:  ${complaintData.rollNo} \nRoom : ${complaintData.room} \nSubject:${complaintData.subject} \nDescription:${complaintData.description} `,
 						MediaUrl: `${complaintData.link}`,
-						From: "whatsapp:+xxxx",
-						To: "whatsapp:+xxxx",
+						From: "whatsapp:+xxx",
+						To: "whatsapp:+xxx",
 					}),
 					{
 						auth: {
-							username: "xxxx",
-							password: "xxxx",
+							username: "xxx",
+							password: "xxx",
 						},
 					}
 				);
@@ -153,7 +153,7 @@ export default function Dashboard(props) {
 		if (imageUpload == null) {
 			return;
 		}
-		console.log(imageName);
+
 		const storage = getStorage();
 		const imageRef = ref(storage, `${props.userData.id}/${imageName}`);
 		uploadBytes(imageRef, imageUpload).then(() => {
@@ -241,7 +241,6 @@ export default function Dashboard(props) {
 		</ScrollView>
 	);
 
-	// complaints.map((singleComplaint) => {console.log});
 	const SecondRoute = () => (
 		<ScrollView
 			style={{
@@ -290,7 +289,6 @@ export default function Dashboard(props) {
 	const [complaints, setComplaints] = useState([]);
 	const [isResolved, setIsResolved] = useState(false);
 
-	console.log(props);
 	return (
 		<View style={styles.container}>
 			<View style={styles.navbar}>
